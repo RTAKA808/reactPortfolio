@@ -56,39 +56,39 @@ export default function ContactPage() {
 
     setErrors(newErrors);//Updates error state with the new errors object
 
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0; //Returns true if there are no errors/false if there are any.
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = (event) => {
     // validates the field when it loses focus and updates the error state.
-    const { name, value } = e.target;
-    setFormValues((prevValues) => ({
+    const { name, value } = event.target;
+    setFormValues((prevValues) => ({// Updates formValues state with the new value.
       ...prevValues,
       [name]: value,
     }));
 
-    setErrors((prevErrors) => ({
+    setErrors((prevErrors) => ({ //Updates error state by validating the input using the validateField fx.
       ...prevErrors,
       [name]: validateField(name, value),
     }));
   };
 
   const validateField = (name, value) => {
-    if (!value.trim()) {
+    if (!value.trim()) {//Checks if field is empty.
       return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
     }
 
-    if (name === "user_email" && !/\S+@\S+\.\S+/.test(value)) {
+    if (name === "user_email" && !/\S+@\S+\.\S+/.test(value)) {//Checks against an email regex.
       return "Email is not valid";
     }
 
-    return "";
+    return "";//Returns empty string if fields are valid.
   };
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     // updates the form values as the user types.
-    const { name, value } = e.target;
-    setFormValues((prevValues) => ({
+    const { name, value } = event.target;//gets the name and value of the field that triggered the change event.
+    setFormValues((prevValues) => ({//Updates form values with new input values.
       ...prevValues,
       [name]: value,
     }));
@@ -134,6 +134,7 @@ export default function ContactPage() {
             onBlur={handleBlur}
           />
           {errors.message && <span className="error">{errors.message}</span>}
+          {/* renders error msg uf errors.message isnt empty */}
 
           <input className="subButton" type="submit" value="Send" />
         </form>

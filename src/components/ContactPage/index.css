@@ -40,6 +40,12 @@ input {
 
 }
 
+.subButton:active {
+  background-color: #2a57d2;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .error {
   color: red;
   font-size: 1em;
