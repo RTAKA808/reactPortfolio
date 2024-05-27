@@ -1,0 +1,19 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    position: relative;
+}
+
+.icons {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3rem;
+    
+}
+
+.icons img{
+    height: auto;
+    width: 5rem;
+}
