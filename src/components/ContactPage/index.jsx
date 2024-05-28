@@ -5,15 +5,13 @@ import "./index.css";
 export default function ContactPage() {
   const form = useRef();
   const [formValues, setFormValues] = useState({
-    //Tracks the current values of the form fields.
-    user_name: "",
-    user_email: "",
+    name: "",
+    email: "",
     message: "",
   });
   const [errors, setErrors] = useState({
-    //Tracks the error messages for each field.
-    user_name: "",
-    user_email: "",
+    name: "",
+    email: "",
     message: "",
   });
 
@@ -21,74 +19,67 @@ export default function ContactPage() {
     e.preventDefault();
 
     if (validateForm()) {
-      emailjs
-        .sendForm("service_falkfy8", "template_1ioxxcm", form.current, {
-          publicKey: "12JrSpC9PGtubvgLh",
-        })
+      emailjs.sendForm(
+          import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+          form.current,  // Pass the form ref here
+          import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        )
         .then(
           () => {
             console.log("SUCCESS!");
+            alert('Message is on the way!ദ്ദി´▽`)');
           },
           (error) => {
             console.log("FAILED...", error.text);
+            alert('Σ(°□°´Ⅲ)!!? something went wrong. try again.');
           }
         );
     }
   };
 
   const validateForm = () => {
-    //Checks all fields before form submission. If there are errors, it prevents form submission and sets the error messages.
-    const newErrors = {};//Stores errors
-
-    if (!formValues.user_name.trim()) {
-      newErrors.user_name = "Name is required";
+    const newErrors = {};
+    if (!formValues.name.trim()) {
+      newErrors.name = "Name is required";
     }
-
-    if (!formValues.user_email.trim()) {
-      newErrors.user_email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formValues.user_email)) {
-      newErrors.user_email = "Email is not valid";
+    if (!formValues.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
+      newErrors.email = "Email is not valid";
     }
-
     if (!formValues.message.trim()) {
       newErrors.message = "Message is required";
     }
-
-    setErrors(newErrors);//Updates error state with the new errors object
-
-    return Object.keys(newErrors).length === 0; //Returns true if there are no errors/false if there are any.
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleBlur = (event) => {
-    // validates the field when it loses focus and updates the error state.
     const { name, value } = event.target;
-    setFormValues((prevValues) => ({// Updates formValues state with the new value.
+    setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
-
-    setErrors((prevErrors) => ({ //Updates error state by validating the input using the validateField fx.
+    setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: validateField(name, value),
     }));
   };
 
   const validateField = (name, value) => {
-    if (!value.trim()) {//Checks if field is empty.
+    if (!value.trim()) {
       return `${name.charAt(0).toUpperCase() + name.slice(1)} is required`;
     }
-
-    if (name === "user_email" && !/\S+@\S+\.\S+/.test(value)) {//Checks against an email regex.
+    if (name === "email" && !/\S+@\S+\.\S+/.test(value)) {
       return "Email is not valid";
     }
-
-    return "";//Returns empty string if fields are valid.
+    return "";
   };
 
   const handleChange = (event) => {
-    // updates the form values as the user types.
-    const { name, value } = event.target;//gets the name and value of the field that triggered the change event.
-    setFormValues((prevValues) => ({//Updates form values with new input values.
+    const { name, value } = event.target;
+    setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -97,36 +88,32 @@ export default function ContactPage() {
   return (
     <div className="formBox">
       <div className="divContainer">
-        <h2>Please Contact Me</h2>
+        <h2>Get In Touch</h2>
         <form className="form" ref={form} onSubmit={sendEmail}>
           <label>Name</label>
           <input
             type="text"
-            name="user_name"
+            name="name"
             required
-            value={formValues.user_name}
+            value={formValues.name}
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.user_name && (
-            <span className="error">{errors.user_name}</span>
-          )}
-
+          {errors.name && <span className="error">{errors.name}</span>}
           <label>Email</label>
           <input
             type="email"
-            name="user_email"
+            name="email"
             required
-            value={formValues.user_email}
+            value={formValues.email}
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.user_email && (
-            <span className="error">{errors.user_email}</span>
-          )}
-
+          {errors.email && <span className="error">{errors.email}</span>}
           <label>Message</label>
           <textarea
+            className="messageBox"
+            rows={4}
             name="message"
             required
             value={formValues.message}
@@ -134,9 +121,7 @@ export default function ContactPage() {
             onBlur={handleBlur}
           />
           {errors.message && <span className="error">{errors.message}</span>}
-          {/* renders error msg uf errors.message isnt empty */}
-
-          <input className="subButton" type="submit" value="Send" />
+          <button className="subButton" type="submit">Send</button>
         </form>
       </div>
     </div>

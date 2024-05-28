@@ -1,8 +1,48 @@
+
 .navbar{
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   list-style: none;
+  padding: 0;
 }
 
+.navbar li{
+  padding:10px;
+  
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 90%;
+}
+.header img{
+width: 45px;
+height:  45px;
+}
+
+.navbar li a {
+  font-size: small;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+  background-color: rgba(87, 87, 87, 0.274);
+  padding: 4px;
+  border-radius: 50px;
+  display: inline-block; /* Ensure the element can be transformed */
+  transition: transform 0.5s, color 0.5s ease;
+}
+
+
+.navbar li a:hover,
+.navbar li a.active {
+  color: #6100bb;
+  background-color: rgba(97, 210, 255, 0.479);
+  transform: scale(1.1);
+  transition: 0.5s;
+}

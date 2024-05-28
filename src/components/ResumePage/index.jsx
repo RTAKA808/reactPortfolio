@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import Popup from '../../utils'
 
 export default function InteractiveSkillsBubbles() {
   const skills = [
@@ -23,11 +24,14 @@ export default function InteractiveSkillsBubbles() {
   };
 
   return (
+    <>
+    <h2><span className='arrow'>↓</span> Resume<span className='arrow'>↓</span> </h2>
     <div className="interactive-skills-bubbles">
       <div className="bubbles-container">
         {skills.map((skill, index) => (
           <div
             key={index}
+            
             className="bubble"
             style={{ backgroundColor: skill.color }}
             onClick={() => handleBubbleClick(skill)}
@@ -49,6 +53,7 @@ export default function InteractiveSkillsBubbles() {
         </a>
       </div>
     </div>
+    </>
   );
 }
 

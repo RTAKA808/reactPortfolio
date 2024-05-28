@@ -3,16 +3,17 @@ import styles from './index.css'
 export default function Nav({ links }) {
   return (
     <nav className='nav'>
-      <div>
-        <h1>Reyn Takahashi</h1>
-        <h2>Full-Stack Engineer</h2>
+      <div className='header'>
+        <img className='logo'src="./RT_Logo.svg" alt="logo" />
+        <h1 id='name'>Reyn Takahashi</h1>
+        </div>
         <div>
           <ul className="navbar">
             {links.map((link) => (
-              <li key={link.key}>{link}</li>
+              <li  key={link.key}>{link}</li>
             ))}
           </ul>
-        </div>
+        
       </div>
     </nav>
   );

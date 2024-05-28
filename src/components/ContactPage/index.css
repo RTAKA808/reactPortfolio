@@ -3,13 +3,12 @@
   min-height:60vh;
   text-align: center;
   justify-content: center;
+  
 }
 
 .divContainer {
   display: flex;
   flex-direction: column;
-  border: 1px, solid, black;
-  border-radius: 10%;
   width: 85%;
   height: 50vh;
 }
@@ -23,11 +22,17 @@ textarea {
 }
 
 input {
+  color: black;
+  background-color: rgba(130, 130, 131, 0.425);
+  border-radius: 10px;
+  width: 80%;
   display: block;
   align-self: center;
-  width: 50%;
 }
 
+.messageBox{
+  background-color: rgba(130, 130, 131, 0.425);
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -35,9 +40,16 @@ input {
 }
 
 .subButton{
-  width:25%;
-  border: 2px,solid,black;
-
+  background-color: #818181;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50%;
+  align-self: center;
+margin-top: 10px;
 }
 
 .subButton:active {
