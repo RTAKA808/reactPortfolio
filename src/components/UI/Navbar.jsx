@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.css'
+import './index.css'
 export default function Nav({ links }) {
   return (
     <nav className='nav'>

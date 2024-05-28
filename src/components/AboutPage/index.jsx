@@ -1,4 +1,4 @@
-import styles from './index.css'
+import'./index.css'
 export default function AboutPage() {
   return (
     <div className='container'>
