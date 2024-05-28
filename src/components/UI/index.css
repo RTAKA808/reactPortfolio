@@ -46,3 +46,24 @@ height:  45px;
   transform: scale(1.1);
   transition: 0.5s;
 }
+
+.arrowMain {
+  font-size: 10px;
+  text-align: center;
+  position:relative;
+  top: -15px;
+  pointer-events: none;
+  animation: upAndDown 1s infinite;
+  }
+  
+  @keyframes upAndDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Move up by 10px */
+    }
+    100% {
+      transform: translateY(0); /* Move back to the original position */
+    }
+  }

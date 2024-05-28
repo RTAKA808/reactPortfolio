@@ -13,8 +13,8 @@ export default function Nav({ links }) {
               <li  key={link.key}>{link}</li>
             ))}
           </ul>
-        <div>
-          
+        <div className='arrowMain'>
+        ↓
         </div>
       </div>
     </nav>
