@@ -18,7 +18,7 @@ import ContactPage from "../components/ContactPage";
 import ErrorPage from "../components/ErrorPage/ErrorPage"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import { element } from 'three/examples/jsm/nodes/Nodes.js'
-THREE.ColorManagement.legacyMode = false;
+THREE.ColorManagement.enabled = true;
 
 const router = createBrowserRouter([
   {
