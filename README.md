@@ -32,6 +32,7 @@ Collaborators include: Alic Madd, Drew Hoang, and Kyle Vance
 resources used: MDN, W3 schools, google search
 icons from https://www.flaticon.com/
 three js and 3d models are from pmdrs.rs dev collective via example on https://docs.pmnd.rs/react-three-fiber/getting-started/examples
+Computer models were by Rafael Rodrigues via threejs/threefiber examples
 
 ## links
 
