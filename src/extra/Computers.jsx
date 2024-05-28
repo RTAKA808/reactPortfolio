@@ -15,6 +15,7 @@ import ResumePage from "../components/ResumePage";
 import AboutPage from "../components/AboutPage";
 import PortfolioPage from "../components/PortfolioPage";
 import ContactPage from "../components/ContactPage";
+import ErrorPage from "../components/ErrorPage/ErrorPage"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import { element } from 'three/examples/jsm/nodes/Nodes.js'
 THREE.ColorManagement.legacyMode = false;
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement:<ErrorPage/>,
     children: [
       { index: true, element: <AboutPage /> },
       { path: "/portfolio", element: <PortfolioPage /> },
