@@ -48,7 +48,7 @@ export default function InteractiveSkillsBubbles() {
         </div>
       )}
       <div className="resume-download">
-        <a href="https://docs.google.com/document/d/18dv8UbPEf4dWiseTIQOb1gv5Mp0gO16I/edit?usp=sharing&ouid=116463701132153243784&rtpof=true&sd=true" download>
+        <a href="https://docs.google.com/document/d/18dv8UbPEf4dWiseTIQOb1gv5Mp0gO16I/edit?usp=sharing&ouid=116463701132153243784&rtpof=true&sd=true" target='_blank'>
           <button>Download Resume</button>
         </a>
       </div>

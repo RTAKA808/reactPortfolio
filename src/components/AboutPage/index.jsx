@@ -5,7 +5,7 @@ export default function AboutPage() {
       <h2>Full-Stack Engineer</h2>
       <img className='logo'src="./RT_Avatar.png" alt="logo" />
       <div>
-      <h2>A Little About Me:</h2>
+      <h2 >A Little About Me:</h2>
       <p>
         My name is Reyn Takahashi and I am an aspiring Software Engineer with experience with full stack applications. I have experience with modalities that include: HTML, JavaScript, CSS, PostgresSQL, MongoDB, NodeJS,Express, ReactJS, and more… I am always excited to learn new things and it has even become my hobby to build games.
         <br /><br />
